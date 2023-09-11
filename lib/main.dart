@@ -1,11 +1,7 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:personal_data/comman/functions/open_url.dart';
 import 'package:personal_data/comman/functions/open_whats_app.dart';
 import 'package:personal_data/data/params/whatsapp_params.dart';
 import 'package:personal_data/widgets/social_media_text.dart';
-import 'package:qr_flutter/qr_flutter.dart';
-import 'package:responsive_framework/responsive_value.dart';
 import 'package:responsive_framework/responsive_wrapper.dart';
 import 'package:responsive_framework/utils/scroll_behavior.dart';
 
