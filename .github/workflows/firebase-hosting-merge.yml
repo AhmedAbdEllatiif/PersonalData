@@ -14,7 +14,7 @@ jobs:
       - uses: actions/setup-java@v3
         with:
           distribution: 'zulu'
-          java-version: '17'
+          java-version: '8'
       - uses: subosito/flutter-action@v2
         with:
           flutter-version: '3.0.0'
@@ -25,4 +25,5 @@ jobs:
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_CONTACT_WITH_AHMED }}'
+          channelId: live
           projectId: contact-with-ahmed
