@@ -83,14 +83,14 @@ class _MyHomePageState extends State<MyHomePage> {
               CircleAvatar(
                 backgroundImage: const AssetImage('assets/images/ahmed.jpeg'),
                 backgroundColor: Colors.transparent,
-                radius: MediaQuery.of(context).size.width * 0.5 / 2,
+                radius: MediaQuery.of(context).size.width * 0.4 / 2,
               ),
 
               /// name
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 8.0),
                 child: Text(
-                  "Ahmed Mohamed Abd El-latif",
+                  "Ahmed Abd El-latif",
                   style: Theme.of(context).textTheme.headlineLarge,
                 ),
               ),
