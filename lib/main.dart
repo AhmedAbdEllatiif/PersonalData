@@ -1,10 +1,7 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:personal_data/comman/functions/open_url.dart';
 import 'package:personal_data/comman/functions/open_whats_app.dart';
 import 'package:personal_data/data/params/whatsapp_params.dart';
 import 'package:personal_data/widgets/social_media_text.dart';
-import 'package:qr_flutter/qr_flutter.dart';
 import 'package:responsive_framework/responsive_value.dart';
 import 'package:responsive_framework/responsive_wrapper.dart';
 import 'package:responsive_framework/utils/scroll_behavior.dart';
@@ -75,12 +72,12 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black12,
+      backgroundColor: Colors.white,
+      // backgroundColor: Colors.black12,
       body: Center(
         child: SingleChildScrollView(
           padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
           child: Column(
-            //crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               /// personal image
               CircleAvatar(
@@ -89,46 +86,77 @@ class _MyHomePageState extends State<MyHomePage> {
                 radius: MediaQuery.of(context).size.width * 0.4 / 2,
               ),
 
-              // Container(
-              //   color: Colors.white,
-              //   child: Container(
-              //     margin: EdgeInsets.all(30),
-              //     child: Column(
-              //       children: [
-              //         QrImage(
-              //           data: "https://contact-with-ahmed.web.app/#/",
-              //           version: QrVersions.auto,
-              //           backgroundColor: Colors.white,
-              //          // embeddedImage: AssetImage('assets/images/ahmed.jpeg'),
-              //
-              //           size: 400.0,
-              //         ),
-              //
-              //         Padding(
-              //           padding: const EdgeInsets.symmetric(vertical: 20.0),
-              //           child: Text(
-              //             "Ahmed  Abd El-latif",
-              //             style: Theme.of(context).textTheme.headlineLarge!.copyWith(
-              //               color: Colors.black,
-              //               fontWeight: FontWeight.bold
-              //             ),
-              //           ),
-              //         ),
-              //       ],
-              //     ),
-              //   ),
-              // ),
-
               /// name
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 8.0),
                 child: Text(
-                  "Ahmed  Abd El-latif",
+                  "Ahmed Abd El-latif",
                   style: Theme.of(context).textTheme.headlineLarge,
                 ),
               ),
 
               /// space
+              //const SizedBox(height: 20),
+
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  /// image
+                  GestureDetector(
+                    onTap: () => makeAPhoneCall("+2001124466700"),
+                    child: Column(
+                      children: [
+                        Image.asset(
+                          "assets/images/phoneCall.png",
+                          fit: BoxFit.contain,
+                          width: _buildSize(),
+                          height: _buildSize(),
+                          color: Colors.green,
+                        ),
+                        SelectableText(
+                          "Call me",
+                          maxLines: 1,
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodySmall!
+                              .copyWith(overflow: TextOverflow.ellipsis),
+                        )
+                      ],
+                    ),
+                  ),
+
+                  const SizedBox(width: 30),
+
+                  GestureDetector(
+                    onTap: () => openWhatsapp(
+                      const WhatsappParams(
+                          num: "2001124466700",
+                          text:
+                              "I reached you through the personal QR code, I would like to inform you that ..."),
+                    ),
+                    child: Column(
+                      children: [
+                        Image.asset(
+                          "assets/images/whatsapp.png",
+                          fit: BoxFit.contain,
+                          width: _buildSize(),
+                          height: _buildSize(),
+                          color: Colors.green,
+                        ),
+                        SelectableText(
+                          "Message me",
+                          maxLines: 1,
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodySmall!
+                              .copyWith(overflow: TextOverflow.ellipsis),
+                        )
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+
               const SizedBox(height: 20),
 
               /// email
@@ -138,47 +166,53 @@ class _MyHomePageState extends State<MyHomePage> {
                 imageUrl: "assets/images/google-logo.png",
                 url: "ahmedmohamedaneng@gmail.com",
                 textStyle: Theme.of(context).textTheme.titleMedium!.copyWith(
-                  color: Colors.black,
-                  overflow: TextOverflow.ellipsis,
-                  fontWeight: FontWeight.bold,
-                ),
-                onClicked: () => composeEmail(email: "ahmedmohamedaneng@gmail.com"),
+                      color: Colors.black,
+                      overflow: TextOverflow.ellipsis,
+                      fontWeight: FontWeight.bold,
+                    ),
+                onClicked: () =>
+                    composeEmail(email: "ahmedmohamedaneng@gmail.com"),
               ),
 
-              /// phone
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  /// call
-                  SocialMediaText(
-                    text: "Call Me",
-                    subText: "call",
-                    imageUrl: "assets/images/phoneCall.png",
-                    url: "",
-                    imageColor: Colors.green,
-                    onClicked: () => makeAPhoneCall("+2001124466700"),
-                  ),
-
-                  const SizedBox(width: 20),
-
-                  /// whatsapp
-                  SocialMediaText(
-                    text: "Message Me",
-                    subText: "whatsapp",
-                    imageUrl: "assets/images/whatsapp.png",
-                    url: "",
-                    onClicked: () => openWhatsapp(const WhatsappParams(
-                        num: "2001124466700",
-                        text:
-                            "I reached you through the personal QR code, I would like to inform you that ...")),
-                  ),
-                ],
-              ),
+              // /// phone
+              // Row(
+              //   mainAxisAlignment: MainAxisAlignment.start,
+              //   crossAxisAlignment: CrossAxisAlignment.center,
+              //   children: [
+              //     /// call
+              //     Expanded(
+              //       child: SocialMediaText(
+              //         text: "Call Me",
+              //         subText: "call",
+              //         imageUrl: "assets/images/phoneCall.png",
+              //         url: "",
+              //         imageColor: Colors.green,
+              //         onClicked: () => makeAPhoneCall("+2001124466700"),
+              //       ),
+              //     ),
+              //
+              //     const SizedBox(width: 20),
+              //
+              //     /// whatsapp
+              //     Expanded(
+              //       child: SocialMediaText(
+              //         text: "Message Me",
+              //         subText: "whatsapp",
+              //         imageUrl: "assets/images/whatsapp.png",
+              //         url: "",
+              //         onClicked: () => openWhatsapp(const WhatsappParams(
+              //             num: "2001124466700",
+              //             text:
+              //                 "I reached you through the personal QR code, I would like to inform you that ...")),
+              //       ),
+              //     ),
+              //   ],
+              // ),
 
               /// linkedIn
               const SocialMediaText(
                 text: "Connect with me on LinkedIn",
-                subText: "Ahmed Mohamed",
+                subText: "Ahmed Abd El-latif",
                 imageUrl: "assets/images/linked_in.png",
                 url: "https://www.linkedin.com/in/ahmedmohamedmobiledeveloper",
               ),
@@ -196,7 +230,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 text: "Follow me on Instagram",
                 subText: "ahmeedmohameedd",
                 imageUrl: "assets/images/instagram.png",
-                url: "https://instagram.com/ahmeedmohameedd?igshid=YmMyMTA2M2Y=",
+                url:
+                    "https://instagram.com/ahmeedmohameedd?igshid=YmMyMTA2M2Y=",
               ),
             ],
           ),
@@ -204,4 +239,45 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
     );
   }
+
+  double _buildSize() {
+    return ResponsiveValue(context, defaultValue: 50.0, valueWhen: [
+          const Condition.equals(name: DESKTOP, value: 100.0),
+          const Condition.largerThan(name: TABLET, value: 55.0),
+          const Condition.equals(name: TABLET, value: 55.0),
+          const Condition.equals(name: MOBILE, value: 50.0),
+          const Condition.smallerThan(name: MOBILE, value: 40.0),
+        ]).value ??
+        50.0;
+  }
 }
+
+// Container(
+//   color: Colors.white,
+//   child: Container(
+//     margin: EdgeInsets.all(30),
+//     child: Column(
+//       children: [
+//         QrImage(
+//           data: "https://contact-with-ahmed.web.app/#/",
+//           version: QrVersions.auto,
+//           backgroundColor: Colors.white,
+//          // embeddedImage: AssetImage('assets/images/ahmed.jpeg'),
+//
+//           size: 400.0,
+//         ),
+//
+//         Padding(
+//           padding: const EdgeInsets.symmetric(vertical: 20.0),
+//           child: Text(
+//             "Ahmed  Abd El-latif",
+//             style: Theme.of(context).textTheme.headlineLarge!.copyWith(
+//               color: Colors.black,
+//               fontWeight: FontWeight.bold
+//             ),
+//           ),
+//         ),
+//       ],
+//     ),
+//   ),
+// ),

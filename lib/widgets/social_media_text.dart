@@ -1,4 +1,3 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
@@ -40,69 +39,65 @@ class _SocialMediaTextState extends State<SocialMediaText> {
     final double imageWidth = _buildSize();
 
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 5),
-      child: Row(
-        children: [
-          /// image
-          Image.asset(
-            widget.imageUrl,
-            fit: BoxFit.contain,
-            width: imageWidth,
-            height: imageHeight,
-            color: widget.imageColor,
-          ),
-
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 4.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                /// text
-                // RichText(
-                //   text: TextSpan(
-                //     children: <TextSpan>[
-                //       TextSpan(
-                //         text: widget.text,
-                //         style:
-                //             Theme.of(context).textTheme.headlineSmall!.copyWith(
-                //                   color: Colors.black,
-                //                   fontWeight: FontWeight.bold,
-                //                 ),
-                //         recognizer: TapGestureRecognizer()
-                //           ..onTap = widget.onClicked ??
-                //               () => openUrl(url: widget.url),
-                //       ),
-                //     ],
-                //   ),
-                // ),
-
-                Container(
-                  constraints: BoxConstraints(
-                    maxWidth: MediaQuery.of(context).size.width * 0.8
-                  ),
-                  child: SelectableText(
-                    widget.text,
-                     onTap:  widget.onClicked ??
-                      () => openUrl(url: widget.url),
-                    style: widget.textStyle ?? Theme.of(context).textTheme.titleLarge!.copyWith(
-                          color: Colors.black,
-                          overflow: TextOverflow.ellipsis,
-                          fontWeight: FontWeight.bold,
-                        ),
-
-                  ),
-                ),
-
-
-                /// subText
-                SelectableText(
-                  widget.subText,
-                  style: Theme.of(context).textTheme.bodySmall,
-                )
-              ],
+      padding: const EdgeInsets.symmetric(vertical: 4.0),
+      child: SizedBox(
+        width: 600,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            /// image
+            Image.asset(
+              widget.imageUrl,
+              fit: BoxFit.contain,
+              width: imageWidth,
+              height: imageHeight,
+              color: widget.imageColor,
             ),
-          ),
-        ],
+
+
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 4),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ///
+                    /// mainText
+                    ///
+                    ///
+                    SelectableText(
+                      widget.text,
+                      maxLines: 1,
+                      onTap:  widget.onClicked ??
+                              () => openUrl(url: widget.url),
+                      style: widget.textStyle ?? Theme.of(context).textTheme.titleLarge!.copyWith(
+                        color: Colors.black,
+                        overflow: TextOverflow.ellipsis,
+                        fontWeight: FontWeight.bold,
+                      ),
+
+                    ),
+
+                    ///
+                    /// subText
+                    ///
+                    ///
+                    SelectableText(
+                      widget.subText,
+                      maxLines: 1,
+                      style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                        overflow: TextOverflow.ellipsis
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
