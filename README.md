@@ -1,16 +1,22 @@
-# personal_data
+<!-- Titlw -->
+<h1 align="center">Hi 👋, I'm Ahmed Abd Ellatif</h1>
+<h3 align="center">DevOps Orchestrator | Mobile Application Developer</h3>
 
-Ahmed Mobile Developer
 
-## Getting Started
+<!-- QrCode -->
+<p align="center">
+<a href="https://contact-with-ahmed.firebaseapp.com/#/" target="blank"><img align="center" 
+src="https://github.com/AhmedAbdEllatiif/AhmedAbdEllatiif/assets/40568882/e392c0e1-63f7-472b-9204-383be888533e" 
+alt="https://contact-with-ahmed.firebaseapp.com/#/" height="400" width="400" /></a>
+</p>
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+<!-- Connect with me -->
+<h3 align="left">Connect with me</h3>
+<p align="left">
+<a href="https://linkedin.com/in/https://www.linkedin.com/in/ahmedmohamedmobiledeveloper/" target="blank"><img align="center" 
+src="https://www.vectorlogo.zone/logos/linkedin/linkedin-icon.svg" alt="https://www.linkedin.com/in/ahmedmohamedmobiledeveloper/" height="40" width="40" /></a>
+<a href="https://linkedin.com/in/https://www.linkedin.com/in/ahmedmohamedmobiledeveloper/" target="blank"><img align="center" 
+src="https://www.vectorlogo.zone/logos/facebook/facebook-tile.svg" alt="https://www.facebook.com/profile.php?id=100001249766856" height="40" width="40" /></a>
+</p>
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
